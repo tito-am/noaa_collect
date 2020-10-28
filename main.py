@@ -11,3 +11,6 @@ fs = s3fs.S3FileSystem(client_kwargs=client_kwargs,
 fs.ls('noaa-gfs-bdp-pds/gfs.20201027/00/')
 
 fs.download('noaa-gfs-bdp-pds/gfs.20201027/00/gfs.t00z.pgrb2full.0p50.f027','gfs.t00z.pgrb2full.0p50.f027.grib2')
+
+ds = xr.open_dataset('gfs.t00z.pgrb2full.0p50.f027.grib2', engine='cfgrib')
+ds
